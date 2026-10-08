@@ -29,6 +29,7 @@ buscarTarefas();
 
 function carregarTarefas(listaTarefas){
     let grid = document.querySelector("#tarefas");
+    grid.innerHTML = "";
     if(listaTarefas.length == 0){
         grid.innerHTML = "<p>Crie sua primeira tarefa</p>";
     }else{
@@ -37,6 +38,10 @@ function carregarTarefas(listaTarefas){
                 <div class="bg-white p-4 rounded-lg">
                     <h3 class="font-bold mb-4">${tarefa.titulo}</h3>
                     <p>${tarefa.descricao}</p>
+                    <div class="flex justify-end gap-3">
+                        <box-icon class="cursor-pointer hover:fill-purple-500" name="pencil"></box-icon>
+                        <box-icon onclick="deletarTarefa(${tarefa.id})" class="cursor-pointer hover:fill-purple-500" name="trash"></box-icon>
+                    </div>
                 </div>
             `;
         })
@@ -84,5 +89,21 @@ function criarTarefa(){
         })
     } catch (error) {
         alert("Error: ", error.message);
+    }
+}
+
+function deletarTarefa(id){
+    if(confirm("Deseja realmente apagar?")){
+        fetch(`https://js-lista-de-tarefas-api.onrender.com/tarefas/${id}`,{
+            method: "delete",
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+        .then(resposta => resposta.json())
+        .then(json => {
+            alert(json.mensagem);
+            buscarTarefas();
+        })
     }
 }
