@@ -33,3 +33,18 @@ function carregarTarefas(listaTarefas){
         grid.innerHTML = "<p>Crie sua primeira tarefa</p>";
     }
 }
+
+function abrirFormCriar(){
+    let overlay = document.querySelector("#overlay");
+    let formCriar = document.querySelector("#form-criar");
+    overlay.classList.remove("opacity-0","invisible");
+    formCriar.classList.remove("opacity-0","invisible");
+}
+
+function fecharFormCriar(){
+    let overlay = document.querySelector("#overlay");
+    let formCriar = document.querySelector("#form-criar");
+    overlay.classList.add("opacity-0","invisible");
+    formCriar.classList.add("opacity-0","invisible");
+}
+
