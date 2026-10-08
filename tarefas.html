@@ -23,12 +23,7 @@
     <main class="p-15 bg-slate-200">
         <h1 class="text-3xl font-bold mb-6">Tarefas</h1>
         <div id="tarefas" class="grid grid-cols-3 gap-4">
-            <div class="bg-white p-4 rounded-lg">
-                <h3 class="font-bold mb-4">Titulo do card</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, optio. At provident, earum
-                    laboriosam ipsa non enim natus aut sapiente, excepturi corrupti inventore cupiditate, aliquid
-                    impedit laudantium quisquam? Odit, pariatur?</p>
-            </div>
+            
             <div class="bg-white p-4 rounded-lg">
                 <h3 class="font-bold mb-4">Titulo do card2</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, optio. At provident, earum
@@ -42,7 +37,7 @@
             <div class="flex justify-end">
                 <box-icon name='x' class="cursor-pointer" onclick="fecharFormCriar()"></box-icon>
             </div>
-            <form class="flex flex-col">
+            <form onsubmit="criarTarefa()" class="flex flex-col">
                 <label for="titulo" class="uppercase text-xs font-bold mb-2 block">Titulo</label>
                 <input id="titulo" type="text" placeholder="Titulo da tarefa"
                     class="pl-3 h-10 border-2 border-slate-400 focus:border-purple-600 duration-150 rounded outline-none mb-4"
